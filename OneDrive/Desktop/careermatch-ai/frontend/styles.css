@@ -1,0 +1,602 @@
+/* CareerMatch AI — Main Stylesheet */
+
+:root {
+    --ink: #17231f;
+    --muted: #75817b;
+    --line: #e7ece8;
+    --green: #167653;
+    --mint: #eaf5ef;
+    --paper: #fafcf9;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font: 14px Arial, sans-serif;
+}
+
+header,
+main,
+.bottom {
+    max-width: 1160px;
+    margin: auto;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+header {
+    height: 78px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--line);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--ink);
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.brand > b {
+    background: var(--green);
+    color: white;
+    padding: 10px 13px;
+    border-radius: 10px;
+}
+
+.brand strong {
+    color: var(--green);
+}
+
+.brand small {
+    display: block;
+    font-size: 8px;
+    letter-spacing: 1.5px;
+    color: #89958e;
+    margin-top: 5px;
+}
+
+.online {
+    font-size: 11px;
+    color: var(--muted);
+}
+
+/* Hero */
+
+.hero {
+    padding: 62px 0 38px;
+    max-width: 720px;
+}
+
+.hero label,
+#results label {
+    font-size: 10px;
+    letter-spacing: 1.7px;
+    color: var(--green);
+    font-weight: bold;
+}
+
+.hero h1 {
+    font-size: clamp(38px, 5vw, 60px);
+    line-height: 1.08;
+    letter-spacing: -2px;
+    margin: 17px 0;
+}
+
+.hero em {
+    font-style: normal;
+    color: var(--green);
+}
+
+.hero p {
+    color: var(--muted);
+    line-height: 1.8;
+    max-width: 620px;
+}
+
+/* Main layout */
+
+.layout {
+    display: grid;
+    grid-template-columns: 1fr 270px;
+    gap: 20px;
+    align-items: start;
+}
+
+.panel {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 15px;
+    padding: 23px;
+}
+
+/* Section headings */
+
+.heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.heading > div {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.heading i {
+    font-style: normal;
+    background: var(--mint);
+    color: var(--green);
+    padding: 9px;
+    border-radius: 8px;
+    font-size: 11px;
+}
+
+.heading span b,
+.heading span small {
+    display: block;
+}
+
+.heading span b {
+    font-size: 14px;
+}
+
+.heading span small,
+.heading > small {
+    font-size: 10px;
+    color: var(--muted);
+    margin-top: 4px;
+}
+
+/* Resume upload */
+
+.drop {
+    height: 155px;
+    border: 1px dashed #b8cec1;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #fbfdfb;
+    cursor: pointer;
+    font-size: 11px;
+    color: var(--muted);
+}
+
+.drop input {
+    display: none;
+}
+
+.drop strong {
+    font-size: 13px;
+    color: var(--ink);
+}
+
+.drop span b {
+    color: var(--green);
+}
+
+.drop small {
+    font-size: 10px;
+    color: #9aa49e;
+}
+
+.upload,
+.spark {
+    background: var(--mint);
+    color: var(--green);
+    padding: 9px;
+    border-radius: 9px;
+    font-size: 18px;
+}
+
+/* Job description */
+
+.job {
+    margin-top: 27px;
+}
+
+textarea {
+    width: 100%;
+    height: 175px;
+    resize: vertical;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 14px;
+    font: 12px/1.7 Arial;
+    outline: none;
+}
+
+textarea:focus {
+    border-color: #70a88d;
+}
+
+/* Buttons */
+
+.actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 12px;
+}
+
+.actions small {
+    color: #98a29b;
+    font-size: 10px;
+}
+
+button {
+    cursor: pointer;
+    border: 0;
+    border-radius: 9px;
+    background: var(--green);
+    color: white;
+    padding: 12px 16px;
+    font-weight: bold;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+.actions button b {
+    margin-left: 15px;
+}
+
+.privacy,
+.disclaimer {
+    font-size: 10px;
+    color: #909b94;
+    line-height: 1.6;
+}
+
+/* Sidebar */
+
+.aside {
+    padding: 22px;
+}
+
+.aside h2 {
+    font-size: 19px;
+    line-height: 1.3;
+    margin: 18px 0 7px;
+}
+
+.aside > p {
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+.aside > div {
+    margin: 19px 0;
+}
+
+.aside > div b,
+.aside > div small {
+    display: block;
+    font-size: 11px;
+}
+
+.aside > div small {
+    color: var(--muted);
+    font-size: 10px;
+    margin: 5px 0 0 23px;
+    line-height: 1.5;
+}
+
+.aside footer {
+    border-top: 1px solid var(--line);
+    padding-top: 15px;
+    color: var(--muted);
+    font-size: 10px;
+    line-height: 1.6;
+}
+
+/* Loading and errors */
+
+.hidden {
+    display: none !important;
+}
+
+.error {
+    margin-top: 16px;
+    padding: 13px;
+    background: #fff1f0;
+    color: #a33;
+    border-radius: 9px;
+}
+
+.loading {
+    margin-top: 18px;
+    color: var(--green);
+}
+
+/* Results */
+
+#results {
+    padding-top: 48px;
+}
+
+.result-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 18px;
+}
+
+.result-head h2 {
+    font-size: 28px;
+    margin: 8px 0;
+}
+
+.result-head p {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.print {
+    background: white;
+    color: var(--ink);
+    border: 1px solid var(--line);
+}
+
+/* Match statistics */
+
+.stats {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 12px;
+}
+
+.score strong {
+    display: block;
+    font-size: 38px;
+    color: var(--green);
+    margin: 10px 0;
+}
+
+.score span {
+    font-size: 11px;
+    color: var(--muted);
+}
+
+.score > small,
+.stat small {
+    font-size: 9px;
+    color: var(--muted);
+    letter-spacing: 1px;
+}
+
+.bar {
+    height: 7px;
+    background: #edf1ed;
+    border-radius: 20px;
+    margin: 12px 0;
+    overflow: hidden;
+}
+
+.bar i {
+    display: block;
+    height: 100%;
+    background: var(--green);
+    width: 0;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+}
+
+.stat b {
+    font-size: 30px;
+}
+
+/* Skill cards */
+
+.twocol {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.twocol .panel h3,
+.section h3 {
+    font-size: 14px;
+    margin: 0 0 15px;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    min-height: 25px;
+}
+
+.tag {
+    font-size: 10px;
+    padding: 7px 9px;
+    border-radius: 7px;
+    background: #edf7f1;
+    color: #267451;
+}
+
+.tag.missing {
+    background: #fff4e4;
+    color: #98631e;
+}
+
+/* Requirement breakdown */
+
+.section {
+    margin-top: 12px;
+}
+
+.req {
+    padding: 11px 0;
+    border-top: 1px solid #f0f2ef;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 11px;
+}
+
+.req small {
+    display: block;
+    color: var(--muted);
+    margin-top: 5px;
+    line-height: 1.5;
+}
+
+.req em {
+    font-style: normal;
+    font-size: 9px;
+    white-space: nowrap;
+    color: var(--green);
+}
+
+.req em.no {
+    color: #a66b18;
+}
+
+/* Recommendations */
+
+li {
+    font-size: 11px;
+    line-height: 1.7;
+    color: #59665e;
+    margin: 8px 0;
+}
+
+/* Resume bullet suggestions */
+
+.bullet {
+    border-top: 1px solid var(--line);
+    padding: 12px 0;
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+.bullet:first-child {
+    border: 0;
+}
+
+.bullet p {
+    margin: 6px 0;
+}
+
+.rewrite {
+    background: #f2f8f3;
+    padding: 10px;
+    border-radius: 8px;
+    color: #205c40;
+}
+
+/* Footer */
+
+.bottom {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--line);
+    margin-top: 55px;
+    padding-top: 20px;
+    padding-bottom: 25px;
+    color: #98a29b;
+    font-size: 10px;
+}
+
+.disclaimer {
+    margin-top: 12px;
+}
+
+/* Responsive */
+
+@media(max-width: 800px) {
+
+    .layout {
+        grid-template-columns: 1fr;
+    }
+
+    .aside {
+        display: none;
+    }
+
+}
+
+@media(max-width: 560px) {
+
+    header,
+    main,
+    .bottom {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .online {
+        font-size: 0;
+    }
+
+    .hero {
+        padding-top: 42px;
+    }
+
+    .stats {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .score {
+        grid-column: 1 / -1;
+    }
+
+    .twocol {
+        grid-template-columns: 1fr;
+    }
+
+    .result-head {
+        align-items: start;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .bottom {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+}
+
+/* Print */
+
+@media print {
+
+    header,
+    .hero,
+    .layout,
+    .bottom,
+    .print {
+        display: none !important;
+    }
+
+    #results {
+        display: block !important;
+    }
+
+}
