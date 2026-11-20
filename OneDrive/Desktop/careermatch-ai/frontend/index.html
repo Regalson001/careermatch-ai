@@ -1,0 +1,376 @@
+<!-- frontend/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Compare your resume with a job description using CareerMatch AI.">
+
+    <title>CareerMatch AI — Resume Intelligence</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+<header>
+
+    <a class="brand" href="#">
+
+        <b>C</b>
+
+        <span>
+            career<strong>match</strong>
+            <small>AI CAREER INTELLIGENCE</small>
+        </span>
+
+    </a>
+
+    <span class="online">
+        ● Resume analysis workspace
+    </span>
+
+</header>
+
+
+<main>
+
+    <section class="hero">
+
+        <label>
+            ✳ &nbsp; YOUR NEXT OPPORTUNITY STARTS HERE
+        </label>
+
+        <h1>
+            Make your resume<br>
+            <em>match the opportunity.</em>
+        </h1>
+
+        <p>
+            See how your experience aligns with a role.
+            Find skill gaps, uncover strengths, and improve
+            your resume with evidence-led suggestions.
+        </p>
+
+    </section>
+
+
+    <section class="layout">
+
+        <form id="form" class="panel">
+
+            <div class="heading">
+
+                <div>
+
+                    <i>01</i>
+
+                    <span>
+                        <b>Your resume</b>
+                        <small>Upload your latest CV to get started.</small>
+                    </span>
+
+                </div>
+
+                <small>PDF OR TXT</small>
+
+            </div>
+
+
+            <label class="drop" id="drop" for="resume">
+
+                <input
+                    id="resume"
+                    type="file"
+                    accept=".pdf,.txt"
+                    required
+                >
+
+                <b class="upload">↑</b>
+
+                <strong id="file-name">
+                    Drop your resume here
+                </strong>
+
+                <span>
+                    or <b>browse files</b> from your computer
+                </span>
+
+                <small>Maximum file size: 5 MB</small>
+
+            </label>
+
+
+            <div class="heading job">
+
+                <div>
+
+                    <i>02</i>
+
+                    <span>
+                        <b>Target job description</b>
+                        <small>Paste the job advert you're applying for.</small>
+                    </span>
+
+                </div>
+
+                <small>REQUIRED</small>
+
+            </div>
+
+
+            <textarea
+                id="job"
+                minlength="50"
+                placeholder="Paste the full job description here...
+
+Include responsibilities, required skills, qualifications and experience."
+                required
+            ></textarea>
+
+
+            <div class="actions">
+
+                <small id="count">0 characters</small>
+
+                <button id="submit" type="submit">
+                    Analyze my match <b>→</b>
+                </button>
+
+            </div>
+
+
+            <p class="privacy">
+                ⌑ Your resume is processed for this request
+                and is not saved in a database.
+            </p>
+
+        </form>
+
+
+        <aside class="panel aside">
+
+            <b class="spark">✳</b>
+
+            <h2>
+                A clearer picture<br>
+                of your fit.
+            </h2>
+
+            <p>
+                Turn a long job advert into a practical
+                checklist you can act on.
+            </p>
+
+            <div>
+
+                <b>✓ &nbsp; Skill alignment</b>
+
+                <small>
+                    See requirements already reflected in your CV.
+                </small>
+
+            </div>
+
+
+            <div>
+
+                <b>⌕ &nbsp; Skill gaps</b>
+
+                <small>
+                    Identify areas to strengthen or address honestly.
+                </small>
+
+            </div>
+
+
+            <div>
+
+                <b>✎ &nbsp; Bullet improvements</b>
+
+                <small>
+                    Make relevant experience easier to understand.
+                </small>
+
+            </div>
+
+
+            <footer>
+                Your score is a keyword-coverage indicator,
+                not a hiring probability.
+            </footer>
+
+        </aside>
+
+    </section>
+
+
+    <div id="loading" class="panel loading hidden">
+
+        ⏳ &nbsp; Reading your resume and comparing requirements...
+
+    </div>
+
+
+    <div id="error" class="error hidden" role="alert"></div>
+
+
+    <section id="results" class="hidden">
+
+        <div class="result-head">
+
+            <div>
+
+                <label>YOUR ANALYSIS</label>
+
+                <h2>Here's your match report.</h2>
+
+                <p id="summary"></p>
+
+            </div>
+
+            <button
+                type="button"
+                class="print"
+                onclick="window.print()"
+            >
+                ↓ Save report
+            </button>
+
+        </div>
+
+
+        <div class="stats">
+
+            <article class="panel score">
+
+                <small>SKILLS ALIGNMENT</small>
+
+                <strong id="score">0%</strong>
+
+                <span id="label"></span>
+
+                <div class="bar">
+                    <i id="bar"></i>
+                </div>
+
+                <small>
+                    Weighted coverage of detected job skills
+                </small>
+
+            </article>
+
+
+            <article class="panel stat">
+
+                <small>Matched skills</small>
+
+                <b id="matched-count">0</b>
+
+            </article>
+
+
+            <article class="panel stat">
+
+                <small>Potential skill gaps</small>
+
+                <b id="missing-count">0</b>
+
+            </article>
+
+        </div>
+
+
+        <div class="twocol">
+
+            <article class="panel">
+
+                <h3>Matched skills</h3>
+
+                <div id="matched" class="tags"></div>
+
+            </article>
+
+
+            <article class="panel">
+
+                <h3>Potential skill gaps</h3>
+
+                <div id="missing" class="tags"></div>
+
+            </article>
+
+        </div>
+
+
+        <article class="panel section">
+
+            <h3>Requirement breakdown</h3>
+
+            <div id="requirements"></div>
+
+        </article>
+
+
+        <div class="twocol">
+
+            <article class="panel">
+
+                <h3>Your strengths</h3>
+
+                <ul id="strengths"></ul>
+
+            </article>
+
+
+            <article class="panel">
+
+                <h3>Recommendations</h3>
+
+                <ul id="recommendations"></ul>
+
+            </article>
+
+        </div>
+
+
+        <article class="panel section">
+
+            <h3>Resume bullet improvements</h3>
+
+            <div id="bullets"></div>
+
+        </article>
+
+
+        <p id="disclaimer" class="disclaimer"></p>
+
+    </section>
+
+</main>
+
+
+<footer class="bottom">
+
+    <span>© 2026 CareerMatch AI</span>
+
+    <span>
+        Built for clearer, evidence-led career decisions.
+    </span>
+
+</footer>
+
+
+<script src="app.js"></script>
+
+</body>
+
+</html>
